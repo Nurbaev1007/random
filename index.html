@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		body {
+			height: 90vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		h1  {
+			display: none;
+			position: absolute;
+			top: 35%;
+			left: 50%;
+			transform: translate(-50%);
+		}
+		.container {
+			width: 300px;
+			height: 200px;
+			border: solid;
+			display: none;
+			position: relative;
+		}
+		.cont {
+			width: 300px;
+			height: 200px;
+			border: solid;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			row-gap: 10px;
+		}
+		.a {
+			width: 100%;
+			height: 100px;
+			position: relative;
+		}
+		button {
+			width: 70px;
+			height: 30px;
+			cursor: pointer;
+		}
+		#yes {
+			position: absolute;
+			left: 20px;
+			bottom: 20px;
+		}
+		#no {
+			position: absolute;
+			right: 20px;
+			bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container" id="div1">
+		<h1 id="h1">Я знал</h1>
+	</div>
+
+	<div class="cont" id="div">
+		<h2>Ты тупой???</h2>
+		<div class="a">
+			<button id="yes">Да</button>
+			<button id="no">Нет</button>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		let h1 = document.getElementById('h1');
+		let div = document.getElementById('div');
+		let div1 = document.getElementById('div1')
+		let yes = document.getElementById('yes');
+		let no = document.getElementById('no');
+		let a = 0;
+
+		function random() {
+			a = Math.floor(Math.random() * 100)
+			if (a % 2 === 0) {
+				no.style.right = '0px'
+				no.style.bottom = '50px'
+			} else {
+				no.style.top = '20px'
+				no.style.right = '80px'
+			}
+			setTimeout(() => {
+				no.disabled = false
+			}, 300)
+			no.disabled = true
+		}
+		function disp() {
+			h1.style.display = 'block';
+			div1.style.display = 'block'
+			div.style.display = 'none'
+		}
+
+		no.onclick = random
+		yes.onclick = disp
+	</script>
+</body>
+</html>
